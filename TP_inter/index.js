@@ -2,6 +2,7 @@ let select = document.getElementById("choix");
 let btn = document.getElementById("button");
 // let btnReset = document.getElementById("buttonReset");
 let zoneResult = document.getElementById('zoneResult');
+let imgMovie = document.querySelector(".imgMovie");
 let prodArray = [];
 
 // document.addEventListener('DOMContentLoaded', function () {
@@ -97,10 +98,21 @@ function getMovie(e) {
         })
         .then(function(movieSelected) {
           zoneResult.innerHTML = `
-          <h1>${movieSelected.title}</h1>
-          <h3>${getDirector(movieSelected)}<h3>
-          <h3>${movieSelected.release_date.split("-").reverse().join("/")}</h3>
-          <p>${movieSelected.overview}</p> `;
+          <div class="ctnRes">
+            <div>
+              <div>
+                <h2>${movieSelected.title}</h2>
+                <h3>Réalisé par ${getDirector(movieSelected) ? getDirector(movieSelected): "Aucun réalisateur ou réalisateur inconnu"}<h3>
+                <h3>Sortie le ${movieSelected.release_date ? movieSelected.release_date.split("-").reverse().join("/") : "Aucune date ou date inconnu"}</h3>
+              </div>
+               <div>
+                 <img src="https://image.tmdb.org/t/p/w500${movieSelected.backdrop_path}" alt="${movieSelected.title}">
+               </div>
+            </div>
+            <div class="ctnResume">
+              <p>${movieSelected.overview ? movieSelected.overview : "Résumé indisponible"}</p>
+            </div>
+          </div>`;
         }).catch(err => {
           console.log(err);
         })
@@ -119,9 +131,9 @@ function getDirector(movie) {
 
 function getId(title) {
   for (var option of select.options) {
-     if (option.value == title) {
-       return option.id;
-     }
+    if (option.value == title) {
+      return option.id;
+    }
   }
 }
 

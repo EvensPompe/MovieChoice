@@ -18,21 +18,24 @@ header {
   height: 80px;
   background-color: lightblue;
   display: flex;
-  justify-content: center;
+  flex-flow: column nowrap;
+  justify-content: space-between;
   align-items: center;
 }
 
 main {
   width: 100%;
-  min-height: 250px;
+  height: 545px;
   display: flex;
   flex-flow: row nowrap;
+  background: #FF0141;
 }
 
 aside {
   width: 20%;
-  height: 50pc;
-  background-color: grey;
+  height: inherit;
+  border-right: 2px solid black;
+  background: grey;
 }
 
 #zoneResult{
@@ -41,10 +44,14 @@ aside {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  background-image: url("https://img.freepik.com/free-photo/clapperboard-popcorns-takeaway-glass-with-drinking-straws-popcorns-red-background_23-2148188198.jpg?size=626&ext=jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 #zoneResult *{
   margin-top: 10px;
+  text-shadow: 0 0 3px white;
 }
 
 .sectionChoix{
@@ -58,4 +65,54 @@ aside {
 .sectionChoix select{
   width: 64%;
   margin-right: 2%;
+}
+
+.ctnRes{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: column;
+}
+
+.ctnRes>div{
+  width: inherit;
+  display: flex;
+  flex-flow: row;
+}
+
+.ctnRes>div div{
+  height: 100%;
+}
+
+.ctnRes>div div:first-child{
+  width: 30%;
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+}
+
+.ctnRes>div div:last-child{
+  width: 70%;
+  display: flex;
+  justify-content: center;
+}
+
+.ctnResume{
+  width: inherit;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.ctnResume p{
+  width: 90%;
+}
+
+.ctnBande{
+  width: inherit;
+  height: 20px;
+  background-image: url("https://img2.freepng.fr/20180528/tuz/kisspng-filmstrip-clip-art-film-strip-5b0bcaeb3d2a30.6241250315274994992505.jpg");
+  background-size: contain;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
 }
